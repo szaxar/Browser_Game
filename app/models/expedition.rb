@@ -1,2 +1,2 @@
-class Expedition < ApplicationRecord
+class Expedition < ActiveRecord::Base
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_155416) do
+ActiveRecord::Schema.define(version: 2018_05_21_174028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -31,27 +31,20 @@ ActiveRecord::Schema.define(version: 2018_05_21_155416) do
   enable_extension "pgrowlocks"
   enable_extension "pgstattuple"
   enable_extension "plpgsql"
-  enable_extension "plv8"
-  enable_extension "sslinfo"
-  enable_extension "tablefunc"
-  enable_extension "unaccent"
-  enable_extension "uuid-ossp"
-  enable_extension "xml2"
 
   create_table "expeditions", force: :cascade do |t|
     t.string "name"
     t.integer "duration"
     t.integer "requiredLevel"
-    t.integer "gainedExperience", null: false
-    t.integer "gainedGold", null: false
-    t.integer "enemyAttack", null: false
-    t.integer "enemyDefence", null: false
-    t.integer "enemyStrength", null: false
-    t.integer "enemyAgility", null: false
-    t.integer "enemyHp", default: 100, null: false
+    t.integer "gainedExperience"
+    t.integer "gainedGold"
+    t.integer "enemyAttack"
+    t.integer "enemyDefence"
+    t.integer "enemyStrength"
+    t.integer "enemyAgility"
+    t.integer "enemyHp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_expeditions_on_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_155416) do
     t.string "name"
     t.string "oauth_token"
     t.datetime "oauth_expires_at"
-    t.string "nick", limit: 20, null: false
+    t.string "nick", limit: 20
     t.string "email", limit: 20
     t.integer "hp", default: 100
     t.integer "lvl", default: 1
