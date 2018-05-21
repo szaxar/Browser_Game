@@ -1,4 +1,4 @@
 <h1>Home</h1>
-<%= link_to 'Preview of account', 'users/' + session[:user_id].to_s %>
-<%= link_to 'Start expedition', expeditions_path %>
-<%= link_to 'Challange other player', 'fights/new/' %>
+<%= link_to 'Preview of account', 'users/' + session[:user_id].to_s unless session[:user_id].nil?%>
+<%= link_to 'Start expedition', expeditions_path unless session[:user_id].nil? %>
+<%= link_to 'Challange other player', 'fights/new/' unless session[:user_id].nil?%>
