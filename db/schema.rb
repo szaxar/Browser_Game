@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_174028) do
+ActiveRecord::Schema.define(version: 2018_05_21_180942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -53,19 +53,18 @@ ActiveRecord::Schema.define(version: 2018_05_21_174028) do
     t.string "name"
     t.string "oauth_token"
     t.datetime "oauth_expires_at"
-    t.string "nick", limit: 20
-    t.string "email", limit: 20
-    t.integer "hp", default: 100
-    t.integer "lvl", default: 1
-    t.integer "experience", default: 0
-    t.integer "gold", default: 0
-    t.integer "attack", default: 10
-    t.integer "defence", default: 5
-    t.integer "strength", default: 10
-    t.integer "agility", default: 10
+    t.string "nick"
+    t.string "email"
+    t.integer "hp"
+    t.integer "lvl"
+    t.integer "experience"
+    t.integer "gold"
+    t.integer "attack"
+    t.integer "defence"
+    t.integer "strength"
+    t.integer "agility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["nick"], name: "index_users_on_nick"
   end
 
 end

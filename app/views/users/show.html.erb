@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @user.provider %>
+</p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @user.uid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Oauth token:</strong>
+  <%= @user.oauth_token %>
+</p>
+
+<p>
+  <strong>Auth expires at:</strong>
+  <%= @user.auth_expires_at %>
+</p>
+
+<p>
+  <strong>Nick:</strong>
+  <%= @user.nick %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Hp:</strong>
+  <%= @user.hp %>
+</p>
+
+<p>
+  <strong>Lvl:</strong>
+  <%= @user.lvl %>
+</p>
+
+<p>
+  <strong>Experience:</strong>
+  <%= @user.experience %>
+</p>
+
+<p>
+  <strong>Gold:</strong>
+  <%= @user.gold %>
+</p>
+
+<p>
+  <strong>Attack:</strong>
+  <%= @user.attack %>
+</p>
+
+<p>
+  <strong>Defence:</strong>
+  <%= @user.defence %>
+</p>
+
+<p>
+  <strong>Strength:</strong>
+  <%= @user.strength %>
+</p>
+
+<p>
+  <strong>Agility:</strong>
+  <%= @user.agility %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

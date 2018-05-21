@@ -1,0 +1,92 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :provider %>
+    <%= form.text_field :provider %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uid %>
+    <%= form.text_field :uid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :oauth_token %>
+    <%= form.text_field :oauth_token %>
+  </div>
+
+  <div class="field">
+    <%= form.label :auth_expires_at %>
+    <%= form.datetime_select :auth_expires_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nick %>
+    <%= form.text_field :nick %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hp %>
+    <%= form.number_field :hp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lvl %>
+    <%= form.number_field :lvl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :experience %>
+    <%= form.number_field :experience %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gold %>
+    <%= form.number_field :gold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attack %>
+    <%= form.number_field :attack %>
+  </div>
+
+  <div class="field">
+    <%= form.label :defence %>
+    <%= form.number_field :defence %>
+  </div>
+
+  <div class="field">
+    <%= form.label :strength %>
+    <%= form.number_field :strength %>
+  </div>
+
+  <div class="field">
+    <%= form.label :agility %>
+    <%= form.number_field :agility %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
