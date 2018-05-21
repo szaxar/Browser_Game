@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nick</th>
+      <th>Email</th>
+      <th>Hp</th>
+      <th>Lvl</th>
+      <th>Experience</th>
+      <th>Gold</th>
+      <th>Attack</th>
+      <th>Defence</th>
+      <th>Strength</th>
+      <th>Agility</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+
+        <td><%= user.nick %></td>
+        <td><%= user.email %></td>
+        <td><%= user.hp %></td>
+        <td><%= user.lvl %></td>
+        <td><%= user.experience %></td>
+        <td><%= user.gold %></td>
+        <td><%= user.attack %></td>
+        <td><%= user.defence %></td>
+        <td><%= user.strength %></td>
+        <td><%= user.agility %></td>
+        <td><%= link_to 'Show', user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

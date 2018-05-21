@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @expedition.name %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @expedition.duration %>
+</p>
+
+<p>
+  <strong>Requiredlevel:</strong>
+  <%= @expedition.requiredLevel %>
+</p>
+
+<p>
+  <strong>Gainedexperience:</strong>
+  <%= @expedition.gainedExperience %>
+</p>
+
+<p>
+  <strong>Gainedgold:</strong>
+  <%= @expedition.gainedGold %>
+</p>
+
+<p>
+  <strong>Enemyattack:</strong>
+  <%= @expedition.enemyAttack %>
+</p>
+
+<p>
+  <strong>Enemydefence:</strong>
+  <%= @expedition.enemyDefence %>
+</p>
+
+<p>
+  <strong>Enemystrength:</strong>
+  <%= @expedition.enemyStrength %>
+</p>
+
+<p>
+  <strong>Enemyagility:</strong>
+  <%= @expedition.enemyAgility %>
+</p>
+
+<p>
+  <strong>Enemyhp:</strong>
+  <%= @expedition.enemyHp %>
+</p>
+
+<%= link_to 'Edit', edit_expedition_path(@expedition) %> |
+<%= link_to 'Back', expeditions_path %>

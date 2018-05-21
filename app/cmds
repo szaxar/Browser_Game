@@ -1,0 +1,4 @@
+rails generate scaffold Expedition 'name:string' 'duration:integer' 'requiredLevel:integer' 'gainedExperience:integer' 'gainedGold:integer' 'enemyAttack:integer' 'enemyDefence:integer' 'enemyStrength:integer' 'enemyAgility:integer' 'enemyHp:integer'
+
+
+rails generate scaffold User 'provider:string' 'uid:string' 'name:string' 'oauth_token:string' 'auth_expires_at:datetime' 'nick:string' 'email:string' 'hp:integer' 'lvl:integer'  'experience:integer' 'gold:integer' 'attack:integer' 'defence:integer' 'strength:integer' 'agility:integer'

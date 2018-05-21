@@ -1,0 +1,67 @@
+<%= form_with(model: expedition, local: true) do |form| %>
+  <% if expedition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expedition.errors.count, "error") %> prohibited this expedition from being saved:</h2>
+
+      <ul>
+      <% expedition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requiredLevel %>
+    <%= form.number_field :requiredLevel %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gainedExperience %>
+    <%= form.number_field :gainedExperience %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gainedGold %>
+    <%= form.number_field :gainedGold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enemyAttack %>
+    <%= form.number_field :enemyAttack %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enemyDefence %>
+    <%= form.number_field :enemyDefence %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enemyStrength %>
+    <%= form.number_field :enemyStrength %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enemyAgility %>
+    <%= form.number_field :enemyAgility %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enemyHp %>
+    <%= form.number_field :enemyHp %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
