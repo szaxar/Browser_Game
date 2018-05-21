@@ -5,11 +5,31 @@ one:
   uid: MyString
   name: MyString
   oauth_token: MyString
-  oauth_expires_at: 2018-05-19 23:22:15
+  auth_expires_at: 2018-05-21 20:04:30
+  nick: MyString
+  email: MyString
+  hp: 1
+  lvl: 1
+  experience: 1
+  gold: 1
+  attack: 1
+  defence: 1
+  strength: 1
+  agility: 1
 
 two:
   provider: MyString
   uid: MyString
   name: MyString
   oauth_token: MyString
-  oauth_expires_at: 2018-05-19 23:22:15
+  auth_expires_at: 2018-05-21 20:04:30
+  nick: MyString
+  email: MyString
+  hp: 1
+  lvl: 1
+  experience: 1
+  gold: 1
+  attack: 1
+  defence: 1
+  strength: 1
+  agility: 1

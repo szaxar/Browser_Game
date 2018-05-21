@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_19_212215) do
+ActiveRecord::Schema.define(version: 2018_05_21_182419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -31,12 +31,32 @@ ActiveRecord::Schema.define(version: 2018_05_19_212215) do
   enable_extension "pgrowlocks"
   enable_extension "pgstattuple"
   enable_extension "plpgsql"
-  enable_extension "plv8"
-  enable_extension "sslinfo"
-  enable_extension "tablefunc"
-  enable_extension "unaccent"
-  enable_extension "uuid-ossp"
-  enable_extension "xml2"
+
+  create_table "expeditions", force: :cascade do |t|
+    t.string "name"
+    t.integer "duration"
+    t.integer "requiredLevel"
+    t.integer "gainedExperience", null: false
+    t.integer "gainedGold", null: false
+    t.integer "enemyAttack", null: false
+    t.integer "enemyDefence", null: false
+    t.integer "enemyStrength", null: false
+    t.integer "enemyAgility", null: false
+    t.integer "enemyHp", default: 100, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_expeditions_on_name"
+  end
+
+  create_table "fights", force: :cascade do |t|
+    t.string "attacker"
+    t.string "defender"
+    t.string "winner"
+    t.datetime "date"
+    t.integer "gold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider"
@@ -44,8 +64,23 @@ ActiveRecord::Schema.define(version: 2018_05_19_212215) do
     t.string "name"
     t.string "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string "nick", limit: 20
+    t.string "email", limit: 20
+    t.integer "hp", default: 100
+    t.integer "lvl", default: 1
+    t.integer "experience", default: 0
+    t.integer "gold", default: 0
+    t.integer "attack", default: 10
+    t.integer "defence", default: 5
+    t.integer "strength", default: 10
+    t.integer "agility", default: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "attacker_id"
+    t.bigint "defender_id"
+    t.index ["attacker_id"], name: "index_users_on_attacker_id"
+    t.index ["defender_id"], name: "index_users_on_defender_id"
+    t.index ["nick"], name: "index_users_on_nick"
   end
 
 end

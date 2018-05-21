@@ -1,2 +1,4 @@
-<h1>Home#show</h1>
-<p>Find me in app/views/home/show.html.erb</p>
+<h1>Home</h1>
+<%= link_to 'Preview of account', 'users/' + session[:user_id].to_s %>
+<%= link_to 'Start expedition', expeditions_path %>
+<%= link_to 'Challange other player', 'fights/new/' %>
