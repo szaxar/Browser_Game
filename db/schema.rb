@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 2018_05_21_182419) do
   enable_extension "pgrowlocks"
   enable_extension "pgstattuple"
   enable_extension "plpgsql"
+  enable_extension "plv8"
+  enable_extension "sslinfo"
+  enable_extension "tablefunc"
+  enable_extension "unaccent"
+  enable_extension "uuid-ossp"
+  enable_extension "xml2"
 
   create_table "expeditions", force: :cascade do |t|
     t.string "name"
