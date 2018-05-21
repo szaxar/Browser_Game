@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :oauth_token
       t.datetime :oauth_expires_at
-      t.string :nick , :limit=>20 , :null => false, :unique => true
+      t.string :nick , :limit=>20 , :null => true, :unique => true
       t.string :email, :limit=>20 , :null => true, :unique => true
       t.integer :hp, :default => 100
       t.integer :lvl, :default => 1

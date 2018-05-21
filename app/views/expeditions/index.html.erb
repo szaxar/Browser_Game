@@ -32,9 +32,8 @@
         <td><%= expedition.enemyStrength %></td>
         <td><%= expedition.enemyAgility %></td>
         <td><%= expedition.enemyHp %></td>
-        <td><%= link_to 'Show', expedition %></td>
-        <td><%= link_to 'Edit', edit_expedition_path(expedition) %></td>
-        <td><%= link_to 'Destroy', expedition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Start', expedition %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +41,3 @@
 
 <br>
 
-<%= link_to 'New Expedition', new_expedition_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fights
   resources :users
   resources :expeditions
   get 'auth/:provider/callback', to: 'sessions#create'
@@ -11,4 +12,7 @@ Rails.application.routes.draw do
   resource :users, only: [:show, :create, :new, :destroy]
 
   root to: "home#show"
+  get '/home', to: 'fight#challenge_fight', as: 'challenge_fight'
+
+
 end
