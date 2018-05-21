@@ -1,0 +1,1 @@
+rails generate scaffold Expedition 'name:string' 'duration:integer' 'requiredLevel:integer' 'gainedExperience:integer' 'gainedGold:integer' 'enemyAttack:integer' 'enemyDefence:integer' 'enemyStrength:integer' 'enemyAgility:integer' 'enemyHp:integer'
