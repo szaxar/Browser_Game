@@ -5,11 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Provider</th>
-      <th>Uid</th>
-      <th>Name</th>
-      <th>Oauth token</th>
-      <th>Auth expires at</th>
       <th>Nick</th>
       <th>Email</th>
       <th>Hp</th>
@@ -27,11 +22,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.provider %></td>
-        <td><%= user.uid %></td>
-        <td><%= user.name %></td>
-        <td><%= user.oauth_token %></td>
-        <td><%= user.auth_expires_at %></td>
+
         <td><%= user.nick %></td>
         <td><%= user.email %></td>
         <td><%= user.hp %></td>
@@ -43,7 +34,6 @@
         <td><%= user.strength %></td>
         <td><%= user.agility %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
