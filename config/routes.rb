@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'trainer/training'
   resources :fights
   resources :users
   resources :expeditions
