@@ -12,13 +12,13 @@
     <th>Attack</th>
     <th><%= @user.attack %></th>
     <th><%= @user.attack * ApplicationHelper::ATTACK_COST %></th>
-   <th><button type="button">+1</button></th>
+    <th><%= button_to "Increment", { controller:"trainer", action: "incrementAttack"}, {form_class: "new-thing"} %></th>
   </tr>
   <tr>
     <th>Defence</th>
     <th><%= @user.defence %></th>
     <th><%= @user.defence * ApplicationHelper::DEFENCE_COST %></th>
-    <th><button type="button">+1</button></th>
+    <th><%= button_to "Increment", { controller:"trainer", action: "incrementDefence"}, {form_class: "new-thing"} %></th>
   </tr>
   <tr>
     <th>Strength</th>
@@ -30,7 +30,7 @@
     <th>Agility</th>
     <th><%= @user.agility %></th>
     <th><%= @user.agility * ApplicationHelper::AGILITY_COST %></th>
-    <th><button onclick="" type="button">+1</button></th>
+    <th><%= button_to "Increment", { controller:"trainer", action: "incrementAgility"}, {form_class: "new-thing"} %></th>
   </tr>
 </table>
 
