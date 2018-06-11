@@ -1,30 +1,36 @@
 <h1>Trainer</h1>
+<p>Your Gold:<%= @user.gold %></p>
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= yield %>
 
-
-<table style="width:40%">
+</div>
+<table style="width:30%">
   <tr>
     <th>Attack</th>
-    <th>#war</th>
-    <th>#war2</th>
-   <th><button type="button">Click Me!</button></th>
+    <th><%= @user.attack %></th>
+    <th><%= @user.attack * ApplicationHelper::ATTACK_COST %></th>
+   <th><button type="button">+1</button></th>
   </tr>
   <tr>
     <th>Defence</th>
-    <th>#war</th>
-    <th>#war2</th>
-    <th><button type="button">Click Me!</button></th>
+    <th><%= @user.defence %></th>
+    <th><%= @user.defence * ApplicationHelper::DEFENCE_COST %></th>
+    <th><button type="button">+1</button></th>
   </tr>
   <tr>
     <th>Strength</th>
-    <th>#war</th>
-    <th>#war2</th>
-    <th><button type="button">Click Me!</button></th>
+    <th><%= @user.strength %></th>
+    <th><%= @user.strength * ApplicationHelper::STRENGTH_COST %></th>
+    <th><%= button_to "Increment", { controller:"trainer", action: "incrementStrength"}, {form_class: "new-thing"} %></th>
   </tr>
   <tr>
     <th>Agility</th>
-    <th>#war</th>
-    <th>#war2</th>
-    <th><button type="button">Click Me!</button></th>
+    <th><%= @user.agility %></th>
+    <th><%= @user.agility * ApplicationHelper::AGILITY_COST %></th>
+    <th><button onclick="" type="button">+1</button></th>
   </tr>
 </table>
 
