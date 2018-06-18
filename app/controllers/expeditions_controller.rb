@@ -61,6 +61,73 @@ class ExpeditionsController < ApplicationController
     end
   end
 
+  def start
+    user1 = User.find(session[:user_id])
+    @expedition = Expedition.find(params[:expedition_id])
+
+    if not user1.busy_to.nil? and user1.busy_to > Time.now
+      respond_to do |format|
+        format.html { redirect_to @expedition, notice: 'User is busy until ' + user1.busy_to.to_s }
+        format.json { render json: @expedition.errors, status: :unprocessable_entity }
+        end
+    else
+      expedition(user1)
+      respond_to do |format|
+
+          format.html { redirect_to @expedition, notice: 'Challenge was successfully created.' }
+          format.json { render :show, status: :created, location: @expedition }
+        end
+
+
+      end
+    end
+
+
+
+
+  def expedition(user)
+    @expedition = Expedition.find(params[:expedition_id])
+    userAttacked = false
+    userDamage = [user.attack + user.strength - @expedition.enemyDefence,0].max
+    enemyDamage = [@expedition.enemyAttack + @expedition.enemyStrength - user.defence ,0].max
+    userFortune = user.agility - @expedition.enemyAgility
+    enemyFortune = user.agility - @expedition.enemyAgility
+
+    while user.hp > 0 && @expedition.enemyHp>0
+
+      if(userAttacked)
+
+        if rand(1..100) + enemyFortune > 50
+          user.hp = user.hp - enemyDamage
+        end
+
+        userAttacked = false
+      else
+        if rand(1..100) + userFortune > 50
+          @expedition.enemyHp=@expedition.enemyHp - userDamage
+        end
+
+        userAttacked = true
+
+      end
+
+    end
+
+    if user.hp > @expedition.enemyHp
+      user.gold = user.gold + @expedition.gainedGold
+      user.experience = user.experience + @expedition.gainedExperience
+      while(user.experience>100)
+        user.lvl=user.lvl+1
+        user.experience=user.experience-100
+      end
+    end
+
+    user.busy_to = Time.now + 600
+    user.hp =100
+    user.save
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_expedition

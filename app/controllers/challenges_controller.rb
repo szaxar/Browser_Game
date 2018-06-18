@@ -100,7 +100,7 @@ class ChallengesController < ApplicationController
     user2Fortune = user2.agility - user1.agility
 
     while user1.hp > 0 && user2.hp>0
-      print(' \nuser1 ' + user1.hp.to_s + ' user2 '+user2.hp.to_s)
+
       if(user1Attacked)
 
         if rand(1..100) + user2Fortune > 50
