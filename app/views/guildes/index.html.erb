@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Guildes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Max members</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guildes.each do |guilde| %>
+      <tr>
+        <td><%= guilde.name %></td>
+        <td><%= guilde.max_members %></td>
+        <td><%= link_to 'Show', guilde %></td>
+        <td><%= link_to 'Show Members', 'users?guilde_id='+guilde.id.to_s %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Back',  root_path %>
+<%= link_to 'New Guilde', new_guilde_path %>
+

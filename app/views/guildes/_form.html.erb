@@ -1,0 +1,27 @@
+<%= form_with(model: guilde, local: true) do |form| %>
+  <% if guilde.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(guilde.errors.count, "error") %> prohibited this guilde from being saved:</h2>
+
+      <ul>
+      <% guilde.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :max_members %>
+    <%= form.number_field :max_members %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

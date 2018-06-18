@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if params[:guilde_id].nil?
+      @users = User.all.order('lvl DESC')
+    else
+      @users  =User.all.where(:guilde_id => params[:guilde_id])
+    end
+
+
   end
 
   # GET /users/1
