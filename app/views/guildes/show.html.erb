@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @guilde.name %>
+</p>
+
+<p>
+  <strong>Max members:</strong>
+  <%= @guilde.max_members %>
+</p>
+
+<%= link_to 'Edit', edit_guilde_path(@guilde) %> |
+<%= link_to 'Back', guildes_path %>
