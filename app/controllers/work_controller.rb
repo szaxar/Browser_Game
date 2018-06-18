@@ -8,7 +8,8 @@ class WorkController < ApplicationController
 
     user = User.find(session[:user_id])
     if user.busy_to.nil?
-      user.busy_to = Time.now
+      user.busy_to = Time.now - 1
+      user.save
     end
     if user.busy_to > Time.now
       time = params[:time]

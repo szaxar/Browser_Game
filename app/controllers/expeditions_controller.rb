@@ -65,7 +65,8 @@ class ExpeditionsController < ApplicationController
     user1 = User.find(session[:user_id])
     @expedition = Expedition.find(params[:expedition_id])
     if user1.busy_to.nil?
-      user1.busy_to = Time.now
+      user1.busy_to = Time.now - 1
+      user1.save
     end
 
     if  user1.busy_to > Time.now
