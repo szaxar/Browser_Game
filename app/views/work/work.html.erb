@@ -9,20 +9,8 @@
 </div>
 
 
-<table style="width:30%">
-  <tr>
-    <td>Seconds</td>
-  </tr>
-  <tr>
-    <td><select>
-      <option value=10 >10 s</option>
-      <option value=20>20 s</option>
-      <option value=50>50 s</option>
-      <option value=100>100 s</option>
-
-    </select> </td>
-
-  </tr>
-
-</table>
 <%= link_to 'Back',  root_path %>
+<%= button_to "Work for 30s", {controller: "work", action: "workHard", :time => 30}, {form_class: "new-thing"} %>
+<%= button_to "Work for 100s", {controller: "work", action: "workHard", :time => 100}, {form_class: "new-thing"} %>
+<%= button_to "Work for 500s", {controller: "work", action: "workHard", :time => 500}, {form_class: "new-thing"} %>
+<%= button_to "Work for 1000s", {controller: "work", action: "workHard", :time => 1000}, {form_class: "new-thing"} %>

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :challenges
   resources :guildes
   get 'work/work'
   get 'trainer/training'
-  resources :fights
   resources :users
   resources :expeditions
   get 'auth/:provider/callback', to: 'sessions#create'
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post "guildes/join" => "guildes#join"
   get "trainer/training" => "trainer#training"
   get "work/work" => "work#work"
-
+  post "work/workHard" => "work#workHard"
+  post "expeditions/start" => "expeditions#start"
 
 end

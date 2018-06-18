@@ -32,7 +32,7 @@
         <td><%= expedition.enemyStrength %></td>
         <td><%= expedition.enemyAgility %></td>
         <td><%= expedition.enemyHp %></td>
-        <td><%= link_to 'Start', expedition %></td>
+        <td><%= button_to "Send", {controller: "expeditions", action: "start",  :expedition_id => expedition.id}, {form_class: "new-thing"} %></td>
 
       </tr>
     <% end %>

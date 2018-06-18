@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_18_154946) do
+ActiveRecord::Schema.define(version: 2018_06_18_175337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2018_06_18_154946) do
   enable_extension "uuid-ossp"
   enable_extension "xml2"
 
+  create_table "challenges", force: :cascade do |t|
+    t.string "attacker"
+    t.string "defender"
+    t.string "winner"
+    t.datetime "date"
+    t.integer "gold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "expeditions", force: :cascade do |t|
     t.string "name"
     t.integer "duration"
@@ -52,16 +62,6 @@ ActiveRecord::Schema.define(version: 2018_06_18_154946) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_expeditions_on_name"
-  end
-
-  create_table "fights", force: :cascade do |t|
-    t.string "attacker"
-    t.string "defender"
-    t.string "winner"
-    t.datetime "date"
-    t.integer "gold"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "guildes", force: :cascade do |t|
@@ -89,12 +89,9 @@ ActiveRecord::Schema.define(version: 2018_06_18_154946) do
     t.integer "agility", default: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "attacker_id"
-    t.bigint "defender_id"
     t.string "guild"
     t.bigint "guilde_id"
-    t.index ["attacker_id"], name: "index_users_on_attacker_id"
-    t.index ["defender_id"], name: "index_users_on_defender_id"
+    t.datetime "busy_to"
     t.index ["guilde_id"], name: "index_users_on_guilde_id"
     t.index ["nick"], name: "index_users_on_nick"
   end
