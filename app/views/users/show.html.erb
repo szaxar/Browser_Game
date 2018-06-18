@@ -10,6 +10,24 @@
   <%= @user.nick %>
 </p>
 
+<p>
+  <strong>Guild:</strong>
+  <% begin
+       guild = Guilde.find(@user.guilde_id)
+     rescue ActiveRecord::RecordNotFound => e
+      guild = nil
+     end
+  %>
+  <%  to_path = '/guildes/'
+      guild_name = ''%>
+  <% if not guild.nil?
+       to_path = to_path + guild.id.to_s
+       guild_name = guild.name
+     end
+  %>
+  <%= link_to guild_name ,  to_path %>
+
+</p>
 
 <p>
   <strong>Lvl:</strong>
@@ -40,5 +58,7 @@
   <strong>Agility:</strong>
   <%= @user.agility %>
 </p>
+
+
 
 <%= link_to 'Back',  root_path %>

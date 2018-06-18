@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @guilde.name %>
+</p>
+
+<p>
+  <strong>Max members:</strong>
+  <%= @guilde.max_members %>
+</p>
+
+
+<%= link_to 'Back', guildes_path %>
+><%= button_to "Join", { controller:"guildes", action: "join", :guilde_id => @guilde.id}, {form_class: "new-thing"} %>
+
