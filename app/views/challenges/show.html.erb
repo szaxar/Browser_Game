@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attacker:</strong>
+  <%= @challenge.attacker %>
+</p>
+
+<p>
+  <strong>Defender:</strong>
+  <%= @challenge.defender %>
+</p>
+
+<p>
+  <strong>Winner:</strong>
+  <%= @challenge.winner %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @challenge.date %>
+</p>
+
+<p>
+  <strong>Gold:</strong>
+  <%= @challenge.gold %>
+</p>
+
+<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<%= link_to 'Back', challenges_path %>
