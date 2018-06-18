@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post "guildes/join" => "guildes#join"
   get "trainer/training" => "trainer#training"
   get "work/work" => "work#work"
+  post "work/workHard" => "work#workHard"
   post "expeditions/start" => "expeditions#start"
 
 end
