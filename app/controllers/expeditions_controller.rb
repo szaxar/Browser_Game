@@ -64,8 +64,11 @@ class ExpeditionsController < ApplicationController
   def start
     user1 = User.find(session[:user_id])
     @expedition = Expedition.find(params[:expedition_id])
+    if user1.busy_to.nil?
+      user1.busy_to = Time.now
+    end
 
-    if not user1.busy_to.nil? and user1.busy_to > Time.now
+    if  user1.busy_to > Time.now
       respond_to do |format|
         format.html { redirect_to @expedition, notice: 'User is busy until ' + user1.busy_to.to_s }
         format.json { render json: @expedition.errors, status: :unprocessable_entity }

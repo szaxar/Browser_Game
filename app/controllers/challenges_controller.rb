@@ -27,13 +27,18 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     user2 = User.find_by_nick(@challenge.defender)
     user1 = User.find(session[:user_id])
+
+    if user1.busy_to.nil?
+      user1.busy_to = Time.now
+    end
+
     if user2.nil?
       respond_to do |format|
         format.html { redirect_to @challenge, notice: 'User not exists' }
         format.json { render json: @challenge.errors, status: :unprocessable_entity }
         end
     else
-      if not user1.busy_to.nil? and user1.busy_to > Time.now
+      if user1.busy_to > Time.now
         respond_to do |format|
           format.html { redirect_to @challenge, notice: 'User is busy until ' + user1.busy_to.to_s }
           format.json { render json: @challenge.errors, status: :unprocessable_entity }

@@ -7,7 +7,10 @@ class WorkController < ApplicationController
   def workHard
 
     user = User.find(session[:user_id])
-    if not user.busy_to.nil? and user.busy_to > Time.now
+    if user.busy_to.nil?
+      user.busy_to = Time.now
+    end
+    if user.busy_to > Time.now
       time = params[:time]
       user.busy_to= Time.now + time.to_i
       user.gold = user.gold + user.lvl * 10 * time.to_i
