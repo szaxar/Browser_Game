@@ -69,7 +69,13 @@ class ExpeditionsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to @expedition, notice: 'User is busy until ' + user1.busy_to.to_s }
         format.json { render json: @expedition.errors, status: :unprocessable_entity }
+      end
+      if user1.lvl < @expedition.requiredLevel
+        respond_to do |format|
+          format.html { redirect_to @expedition, notice: 'User has not enough level ' }
+          format.json { render json: @expedition.errors, status: :unprocessable_entity }
         end
+      end
     else
       expedition(user1)
       respond_to do |format|
