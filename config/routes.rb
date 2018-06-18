@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'work/work'
+  get 'trainer/training'
   resources :fights
   resources :users
   resources :expeditions
@@ -13,6 +15,12 @@ Rails.application.routes.draw do
 
   root to: "home#show"
   get '/home', to: 'fight#challenge_fight', as: 'challenge_fight'
+  post "trainer/incrementStrength" => "trainer#incrementStrength"
+  post "trainer/incrementAttack" => "trainer#incrementAttack"
+  post "trainer/incrementDefence" => "trainer#incrementDefence"
+  post "trainer/incrementAgility" => "trainer#incrementAgility"
+  get "trainer/training" => "trainer#training"
+  get "work/work" => "work#work"
 
 
 end
