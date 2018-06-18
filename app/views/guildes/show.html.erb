@@ -10,5 +10,7 @@
   <%= @guilde.max_members %>
 </p>
 
-<%= link_to 'Edit', edit_guilde_path(@guilde) %> |
+
 <%= link_to 'Back', guildes_path %>
+><%= button_to "Join", { controller:"guildes", action: "join", :guilde_id => @guilde.id}, {form_class: "new-thing"} %>
+

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
   resource :expeditions, only: [:show, :create, :new, :destroy]
   resource :users, only: [:show, :create, :new, :destroy]
+  resource :guildes, only:[:show, :create, :new]
 
   root to: "home#show"
   get '/home', to: 'fight#challenge_fight', as: 'challenge_fight'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   post "trainer/incrementAttack" => "trainer#incrementAttack"
   post "trainer/incrementDefence" => "trainer#incrementDefence"
   post "trainer/incrementAgility" => "trainer#incrementAgility"
+  post "guildes/join" => "guildes#join"
   get "trainer/training" => "trainer#training"
   get "work/work" => "work#work"
 

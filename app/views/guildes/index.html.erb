@@ -17,13 +17,13 @@
         <td><%= guilde.name %></td>
         <td><%= guilde.max_members %></td>
         <td><%= link_to 'Show', guilde %></td>
-        <td><%= link_to 'Edit', edit_guilde_path(guilde) %></td>
-        <td><%= link_to 'Destroy', guilde, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show Members', 'users?guilde_id='+guilde.id.to_s %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<%= link_to 'Back',  root_path %>
 <%= link_to 'New Guilde', new_guilde_path %>
+

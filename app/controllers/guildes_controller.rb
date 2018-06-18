@@ -61,6 +61,16 @@ class GuildesController < ApplicationController
     end
   end
 
+  def join
+    @guilde = Guilde.find(params[:guilde_id])
+    user = User.find(session[:user_id])
+    user.guilde_id = @guilde.id
+    user.save
+
+  end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guilde
