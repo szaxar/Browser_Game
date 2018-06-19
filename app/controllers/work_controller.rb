@@ -11,7 +11,7 @@ class WorkController < ApplicationController
       user.busy_to = Time.now - 1
       user.save
     end
-    if user.busy_to > Time.now
+    if user.busy_to < Time.now
       time = params[:time]
       user.busy_to= Time.now + time.to_i
       user.gold = user.gold + user.lvl * 10 * time.to_i
@@ -23,7 +23,7 @@ class WorkController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to '/work/work/', notice: 'User is busy until ' + user.busy_to.to_s }
+        format.html { redirect_to '/work/work/', notice: 'User is busy for ' + (user.busy_to - Time.now).to_s+'s' }
         format.json { render json: "", status: :unprocessable_entity }
       end
     end

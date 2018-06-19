@@ -71,9 +71,11 @@ class ExpeditionsController < ApplicationController
 
     if  user1.busy_to > Time.now
       respond_to do |format|
-        format.html { redirect_to @expedition, notice: 'User is busy until ' + user1.busy_to.to_s }
+        format.html { redirect_to @expedition, notice: 'User is busy for ' + (user1.busy_to - Time.now).to_s+'s' }
+        
         format.json { render json: @expedition.errors, status: :unprocessable_entity }
       end
+
       if user1.lvl < @expedition.requiredLevel
         respond_to do |format|
           format.html { redirect_to @expedition, notice: 'User has not enough level ' }
@@ -84,7 +86,7 @@ class ExpeditionsController < ApplicationController
       expedition(user1)
       respond_to do |format|
 
-          format.html { redirect_to @expedition, notice: 'Challenge was successfully created.' }
+          format.html { redirect_to @expedition, notice: 'Expediton was successfully created.' }
           format.json { render :show, status: :created, location: @expedition }
         end
 

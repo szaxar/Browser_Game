@@ -8,29 +8,35 @@
 
 </div>
 <table style="width:30%">
+
+    <th>Skill</th>
+    <th>Current</th>
+    <th>Cost</th>
+
+
   <tr>
-    <th>Attack</th>
-    <th><%= @user.attack %></th>
-    <th><%= @user.attack * ApplicationHelper::ATTACK_COST %></th>
-    <th><%= button_to "Increment", { controller:"trainer", action: "incrementAttack"}, {form_class: "new-thing"} %></th>
+    <td>Attack</td>
+    <td><%= @user.attack %></td>
+    <td><%= @user.attack * ApplicationHelper::ATTACK_COST %></td>
+    <td><%= button_to "Increment", { controller:"trainer", action: "incrementAttack"}, {form_class: "new-thing"} %></td>
   </tr>
   <tr>
-    <th>Defence</th>
-    <th><%= @user.defence %></th>
-    <th><%= @user.defence * ApplicationHelper::DEFENCE_COST %></th>
-    <th><%= button_to "Increment", { controller:"trainer", action: "incrementDefence"}, {form_class: "new-thing"} %></th>
+    <td>Defence</td>
+    <td><%= @user.defence %></td>
+    <td><%= @user.defence * ApplicationHelper::DEFENCE_COST %></td>
+    <td><%= button_to "Increment", { controller:"trainer", action: "incrementDefence"}, {form_class: "new-thing"} %></td>
   </tr>
   <tr>
-    <th>Strength</th>
-    <th><%= @user.strength %></th>
-    <th><%= @user.strength * ApplicationHelper::STRENGTH_COST %></th>
-    <th><%= button_to "Increment", { controller:"trainer", action: "incrementStrength"}, {form_class: "new-thing"} %></th>
+    <td>Strength</td>
+    <td><%= @user.strength %></td>
+    <td><%= @user.strength * ApplicationHelper::STRENGTH_COST %></td>
+    <td><%= button_to "Increment", { controller:"trainer", action: "incrementStrength"}, {form_class: "new-thing"} %></td>
   </tr>
   <tr>
-    <th>Agility</th>
-    <th><%= @user.agility %></th>
-    <th><%= @user.agility * ApplicationHelper::AGILITY_COST %></th>
-    <th><%= button_to "Increment", { controller:"trainer", action: "incrementAgility"}, {form_class: "new-thing"} %></th>
+    <td>Agility</td>
+    <td><%= @user.agility %></td>
+    <td><%= @user.agility * ApplicationHelper::AGILITY_COST %></td>
+    <td><%= button_to "Increment", { controller:"trainer", action: "incrementAgility"}, {form_class: "new-thing"} %></td>
   </tr>
 </table>
 <%= link_to 'Back',  root_path %>
