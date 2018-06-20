@@ -1,4 +1,6 @@
 <h1>Home</h1>
+<%if @user_logged %>
+
 <%= link_to 'Preview of account', 'users/' + session[:user_id].to_s %>
 <%= link_to 'Guildes', guildes_path %>
 <%= link_to 'Start expedition', expeditions_path %>
@@ -6,5 +8,8 @@
 
 <%= link_to 'Train yourself', 'trainer/training/' %>
 <%= link_to 'Go to work', 'work/work/' %>
-<%= link_to 'Ranking', 'users/' %>
+
 <%= link_to 'Challanges', 'challenges' %>
+
+<%end %>
+<%= link_to 'Ranking', 'users/' %>
