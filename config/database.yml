@@ -24,7 +24,6 @@ default: &default
 development:
   <<: *default
   url: <%= ENV['DB_URL'] %>
-  #url: 'postgres://trpoajqd:2kvBboVGwbU9QuIgBjAXI4jDdrO_ywXl@pellefant.db.elephantsql.com:5432/trpoajqd'
   #database: browser_game_database_dev
 
   # The specified database role being used to connect to postgres.
