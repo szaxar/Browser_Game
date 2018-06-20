@@ -75,25 +75,21 @@ class ExpeditionsController < ApplicationController
 
         format.json { render json: @expedition.errors, status: :unprocessable_entity }
       end
-
       if user1.lvl < @expedition.requiredLevel
         respond_to do |format|
           format.html { redirect_to @expedition, notice: 'User has not enough level ' }
           format.json { render json: @expedition.errors, status: :unprocessable_entity }
         end
-      end
-    else
-      expedition(user1)
-      respond_to do |format|
+      else
+        expedition(user1)
+          respond_to do |format|
 
-          format.html { redirect_to @expedition, notice: 'Expediton was successfully created.' }
-          format.json { render :show, status: :created, location: @expedition }
+            format.html { redirect_to @expedition, notice: 'Expediton was successfully created.' }
+            format.json { render :show, status: :created, location: @expedition }
         end
-
-
       end
     end
-
+  end
 
 
 
