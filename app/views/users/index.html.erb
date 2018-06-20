@@ -33,7 +33,9 @@
         <td><%= user.defence %></td>
         <td><%= user.strength %></td>
         <td><%= user.agility %></td>
+        <% if not session[:user_id].nil? %>
         <td><%= link_to 'Show', user %></td>
+          <% end%>
       </tr>
     <% end %>
   </tbody>

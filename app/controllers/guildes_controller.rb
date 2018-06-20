@@ -66,6 +66,7 @@ class GuildesController < ApplicationController
     user = User.find(session[:user_id])
     user.guilde_id = @guilde.id
     user.save
+    redirect_to '/users?guilde_id='+@guilde.id.to_s
 
   end
 

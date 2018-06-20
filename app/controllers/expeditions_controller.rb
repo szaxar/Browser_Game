@@ -128,13 +128,13 @@ class ExpeditionsController < ApplicationController
     if user.hp > @expedition.enemyHp
       user.gold = user.gold + @expedition.gainedGold
       user.experience = user.experience + @expedition.gainedExperience
-      while(user.experience>100)
+      while(user.experience>=100)
         user.lvl=user.lvl+1
         user.experience=user.experience-100
       end
     end
 
-    user.busy_to = Time.now + 600
+    user.busy_to = Time.now + @expedition.duration
     user.hp =100
     user.save
 
